@@ -14,11 +14,13 @@ namespace Bookify.DataAccess.Repository
 
         public ICategoryRepository CategoryRepository { get; private set; }
 
-        
+        public IProductRepository ProductRepository {get; private set; }
+
         public UnitOfWork(ApplicationDbContext dbContext)
         {
             this.dbContext = dbContext;
             CategoryRepository = new CategoryRepository(dbContext);
+            ProductRepository = new ProductRepository(dbContext);
         }
         public void Save()
         {
